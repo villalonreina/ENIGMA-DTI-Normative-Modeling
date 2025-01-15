@@ -13,24 +13,39 @@ The code in this repo requires the following:
 The instructions to install the PCNtoolkit can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit).
 
 ## Demo of model development
-Here we provide a smaller version of the dataset used in the paper. One can run the training code on Ipython:
+Here we provide a subsample of the original dataset used in the paper of ~5400 subjects for DTI-FA. This file is in the `data` folder. One can run the training code on Ipython the folowing way:
+```
+mkdir /path/to/output_dir/norm_model
+out_dir=/path/to/output_dir/norm_model
+cd code/
 
-
-
-
-
+run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
+    -controls '../data/all_sites_subsample_n5459.csv'
+    -dirO {out_dir}
+    -age_column age
+    -site_column Protocol
+    -sex_column sex
+    -outscaler 'standardize'
+```
+The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. 
 
 ## Demo of model adaptation
+We adpated the trained normative models to other datasets via *model transfer*. This capability is available in the PCNtoolkit. In order to run this stpe you must have run the model training first and the model should be saved in the outout directory previously specified (see above). This script calls estimated model and saves the transfer model in another folder. You can run the model transfer function in Ipython via this command:
 
 ```
+cd code
+mkdir /path/to/output_dir/test_transfer
+out_dir_transfer=/path/to/output_dir/test_transfer
+
 run nm_hbr_NIMHANS_spline_age_sexbatch_transfer.py
-    -controls '/Volumes/four_d/jvillalo/NormativeModel/data_sheets/Denoising_data_Nature/FA_NIMHANS_ROItable_denoised_controls_final.csv'
-    -dirM '/Volumes/four_d/jvillalo/NormativeModel/NormModel_age_sexbatch_spline_NatComms_v29_stand/FA_controls1/'
-    -dirO '/Users/julio/Documents/IGC/HBR_paper/test_transfer/'
+    -controls '../data/FA_NIMHANS_ROItable_denoised_controls_final.csv'
+    -dirM '/path/to/output_dir/norm_model'
+    -dirO 'test_transfer/'
     -age_column age
     -site_column Protocol
     -sex_column sex
     -random_state 413624  
 ```
+One can pick any `random_state` in order to run it 10 different times, each time for a different trained model.
 
 [1]: <https://www.biorxiv.org/content/10.1101/2024.12.15.628527v1>
