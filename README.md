@@ -30,7 +30,9 @@ run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
 The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. 
 
 ## Demo of model adaptation
-We adpated the trained normative models to other datasets via *model transfer*. This capability is available in the PCNtoolkit. In order to run this stpe you must have run the model training first and the model should be saved in the outout directory previously specified (see above). This script calls estimated model and saves the transfer model in another folder. You can run the model transfer function in Ipython via this command:
+We adpated the trained normative models to other datasets via *model transfer*, which is capability available in the PCNtoolkit. In order to run this step you must have run the model training first and the model should be saved in the outout directory previously specified (see above). This script calls the estimated model and saves the transfer model in another folder. Note: The data used for this step in the paper cannot be made public and is available upon reasonable request. Please email Julio Villalon at julio.villalon@ini.usc.edu.
+
+You can run the model transfer function in Ipython via this command:
 
 ```
 cd code
