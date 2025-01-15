@@ -10,7 +10,7 @@ The code in this repo requires the following:
 - [python](https://www.python.org/) (>= 3.9)
 - [PCNtoolkit](https://pcntoolkit.readthedocs.io/en/latest/) (>= 0.29)
 
-The instructions to install the PCNtoolkit can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit).
+The code has been tested on Python 3.9 and PCNtoolkit v29. The instructions to install the PCNtoolkit can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit).
 
 ## Demo of model development
 Here we provide a subsample of the original dataset used in the paper of ~5400 subjects for DTI-FA. This file is in the `data` folder. One can run the training code on Ipython the folowing way:
