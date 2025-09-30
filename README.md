@@ -13,10 +13,10 @@ The code in this repo requires the following:
 The code has been tested on Python 3.9 and PCNtoolkit v29. The instructions to install the PCNtoolkit and approximate installation times can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit).
 
 ## Demo of model development
-Here we provide a subsample of the original dataset used in the paper of ~5400 subjects for DTI-FA. This file is in the `data` folder. One can run the training code on Ipython the folowing way:
+Here we provide a subsample of the original dataset used in the paper of ~5400 subjects for DTI-FA. This file is in the `data` folder. One can run the training code on Ipython the following way:
 ```
 mkdir /path/to/output_dir/norm_model
-out_dir=/path/to/output_dir/norm_model
+out_dir='/path/to/output_dir/norm_model'
 cd code/
 
 run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
@@ -27,7 +27,7 @@ run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
     -sex_column sex
     -outscaler 'standardize'
 ```
-The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. This code should finish running in ~1 hour with the sample data provided.
+The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. This code should finish running in ~1 hour with the sample data provided. There are 10 different training codes, called "nm_hbr_controls1_", "nm_hbr_controls2_", etc. Each of these is for a different train-test split (80%-20%).
 When finished running, the output folder should contain a folder for each white matter region (ROI) and text CSV files containing covariates and subjects used for training and testing and evaluation metrics (i.e., MSLL,EV,SMSE,RMSE,Rho) per region and per site. 
 ```
 ACR
