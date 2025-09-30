@@ -21,7 +21,7 @@ cd code/
 
 run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
     -controls '../data/all_sites_subsample_n5459.csv'
-    -dirO {out_dir}
+    -dirO out_dir
     -age_column age
     -site_column Protocol
     -sex_column sex
@@ -74,12 +74,12 @@ You can run the model transfer function in Ipython via this command:
 ```
 cd code
 mkdir /path/to/output_dir/test_transfer
-out_dir_transfer=/path/to/output_dir/test_transfer
+out_dir_transfer='/path/to/output_dir/test_transfer'
 
 run nm_hbr_NIMHANS_spline_age_sexbatch_transfer.py
     -controls '../data/FA_NIMHANS_ROItable_denoised_controls_final.csv'
     -dirM '/path/to/output_dir/norm_model'
-    -dirO 'test_transfer/'
+    -dirO out_dir_transfer
     -age_column age
     -site_column Protocol
     -sex_column sex
