@@ -20,14 +20,14 @@ out_dir='/path/to/output_dir/norm_model'
 cd code/
 
 run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
-    -controls '../data/all_sites_subsample_n5459.csv'
+    -controls '../data/all_sites_subsample_n5697.csv'
     -dirO out_dir
     -age_column age
     -site_column Protocol
     -sex_column sex
     -outscaler 'standardize'
 ```
-The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. This code should finish running in ~1 hour with the sample data provided. There are 10 different training codes, called "nm_hbr_controls1_", "nm_hbr_controls2_", etc. Each of these is for a different train-test split (80%-20%).
+The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. This code should finish running in ~1 hour with the sample data provided. There are 10 different training codes, called "nm_hbr_controls1_rob_spline_age_sexbatch_v29.py", "nm_hbr_controls2_rob_spline_age_sexbatch_v29.py", etc. Each of these is for a different train-test split (80%-20%).
 When finished running, the output folder should contain a folder for each white matter region (ROI) and text CSV files containing covariates and subjects used for training and testing and evaluation metrics (i.e., MSLL,EV,SMSE,RMSE,Rho) per region and per site. 
 ```
 ACR
