@@ -236,11 +236,6 @@ for roi in roi_ids:
 hbr_metrics = pd.DataFrame(columns = ['ROI', 'MSLL', 'EV', 'SMSE', 'RMSE', 'Rho', 'NLL'])
 hbr_site_metrics = pd.DataFrame(columns = ['ROI', 'site', 'y_mean', 'y_var', 'yhat_mean', 'yhat_var', 'MSLL', 'EV', 'SMSE', 'RMSE', 'Rho'])
 
-# b-spline configuration
-configs_spline = {
-  "order": 3,
-  "nknots": 5
-}
 
 # Loop through ROIs for controls 80/20 train/test split
 for roi in roi_ids: 
