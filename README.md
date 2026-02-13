@@ -3,7 +3,7 @@
 
 
 
-This repository contains the code to run normative modeling with hierarchical Bayesian regression (HBR) using the [PCNtoolkit](https://pcntoolkit.readthedocs.io/en/latest/) on white matter summary metrics derived from diffusion tensor imaging (DTI), i.e., fractional anisotropy (FA), mean diffusivity (MD), radial diffusivity (RD) and axial diffusivity (AD). A detailed description of how to process the diffusion MRI data with the ENIGMA-DTI protocol to extract white matter derivatives can be found here: [ENIGMA-DTI Protocols](https://enigma.ini.usc.edu/protocols/dti-protocols/). This code was used to develop and deploy the normative models presented in this paper: [Lifespan Normative Modeling of Brain Microstructure][1]
+This repository contains the code to run normative modeling with hierarchical Bayesian regression (HBR) using the [PCNtoolkit](https://pcntoolkit.readthedocs.io/en/latest/) on white matter summary metrics derived from diffusion tensor imaging (DTI), i.e., fractional anisotropy (FA), mean diffusivity (MD), radial diffusivity (RD) and axial diffusivity (AD). A detailed description of how to process the diffusion MRI data with the ENIGMA-DTI protocol to extract white matter derivatives can be found here: [ENIGMA-DTI Protocols](https://enigma.ini.usc.edu/protocols/dti-protocols/) [ENIGMA-DTI-TBSS Protocol](https://github.com/ENIGMA-git/ENIGMA-DTI-TBSS-Protocol). This code was used to develop and deploy the normative models presented in this paper: [Lifespan Normative Modeling of Brain Microstructure][1]
 
 ## System Requirements
 The code in this repo requires the following:
