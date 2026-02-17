@@ -5,7 +5,7 @@
 
 This repository contains the code to run normative modeling with hierarchical Bayesian regression (HBR) using the [PCNtoolkit](https://pcntoolkit.readthedocs.io/en/latest/) on white matter summary metrics derived from diffusion tensor imaging (DTI), i.e., fractional anisotropy (FA), mean diffusivity (MD), radial diffusivity (RD) and axial diffusivity (AD). A detailed description of how to process the diffusion MRI data with the ENIGMA-DTI protocol to extract white matter derivatives can be found here: [ENIGMA-DTI Protocols](https://enigma.ini.usc.edu/protocols/dti-protocols/) & [ENIGMA-DTI-TBSS Protocol](https://github.com/ENIGMA-git/ENIGMA-DTI-TBSS-Protocol). This code was used to develop and deploy the normative models presented in this paper: [Lifespan Normative Modeling of Brain Microstructure][1]
 
-The code has been tested on PCNtoolkit version 0.29 with Python 3.9, and PCNtoolkit version 0.35 with Python 3.12. The instructions to install the PCNtoolkit and approximate installation times can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit). We recommend installing PCNtoolkit and its dependencies with `pip`.
+The code has been tested on PCNtoolkit v0.29 with Python 3.9, and PCNtoolkit v0.35 with Python 3.12. The instructions to install the PCNtoolkit and approximate installation times can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit). We recommend installing PCNtoolkit and its dependencies with `pip`.
 
 ## System Requirements for PCNtoolkit v0.29
 The code in this repo requires the following:
@@ -38,7 +38,7 @@ run nm_hbr_controls1_rob_spline_age_sexbatch_v29.py
     -outscaler 'standardize'
 ```
 The options for `age_colum`, `site_column` and `sex_column` are defined by the names of the corresponding columns in the input CSV file. This code should finish running in ~1 hour with the sample data provided. There are 10 different training codes, called "nm_hbr_controls1_rob_spline_age_sexbatch_v29.py", "nm_hbr_controls2_rob_spline_age_sexbatch_v29.py", etc. Each of these is for a different train-test split (80%-20%).
-When finished running, the output folder should contain a folder for each white matter region (ROI) and text CSV files containing covariates and subjects used for training and testing and evaluation metrics (i.e., MSLL,EV,SMSE,RMSE,Rho) per region and per site. 
+When finished running, the output folder should contain a folder for each white matter region (ROI) and text CSV files containing covariates and subjects used for training and testing and evaluation metrics (i.e., MSLL, EV, SMSE, RMSE, Rho) per region and per site. 
 ```
 ACR
 ALIC
@@ -71,13 +71,13 @@ batch_tr.txt
 hbr_controls_metrics_f1.csv
 hbr_controls_site_metrics_f1.csv
 ```
-The folder for each white matter region should contain the Z-scores, the predictive mean (yhat) and variance (ys2), and a `Models` folder with the parameters of the normative model for that region:
+The folder for each white matter region should contain the Z-scores, the predictive mean (yhat) and variance (ys2), and a `Models` folder with the parameters of the normative model for that white matter region (ROI):
 ```
 meta_data.md  NM_0_0_estimate.pkl
 ```
 
 ## Demo of model adaptation
-We adpated the trained normative models to other datasets via *model transfer*, which is capability available in the PCNtoolkit. In order to run this step you must have run the model training first and the model should be saved in the outout directory previously specified (see above). This script calls the estimated model and saves the transfer model in another folder. Note: The data used for this step in the paper cannot be made public and is available upon reasonable request. Please email Julio Villalon at julio.villalon@ini.usc.edu.
+We adpated the trained normative models to other datasets via *model transfer*, which is a function available in PCNtoolkit. In order to run this step you must have run the model training first and the trained normative model should be saved in the output directory specified above with the `-dirO` flag). The model adaptation script calls the estimated normative model (`meta_data.md  NM_0_0_estimate.pkl`) and saves the transfer model in another folder (also specified with a `dirO` flag). Note: we have also made the trained models from the paper available and can be found in the `models` folder of this repository. Please email Julio Villalon at julio.villalon@ini.usc.edu if you have any questions.
 
 You can run the model transfer function in Ipython via this command:
 
