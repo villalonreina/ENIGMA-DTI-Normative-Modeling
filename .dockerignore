@@ -1,0 +1,21 @@
+# Exclude the data folder (your main request)
+data/
+
+# Optional but recommended ignores:
+
+# Git metadata
+.git/
+.gitignore
+
+# Binder/log files
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# OS-generated files
+.DS_Store
