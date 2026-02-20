@@ -8,6 +8,7 @@ This repository contains the code and examples to run normative modeling with hi
 The code has been tested on PCNtoolkit v0.29 with Python 3.9, and PCNtoolkit v0.35 with Python 3.12. The instructions to install the PCNtoolkit and approximate installation times can be found here: [PCNtoolkit installation](https://github.com/amarquand/PCNtoolkit). We recommend installing PCNtoolkit and its dependencies with `pip`.
 
 We provide an interactive cloud environment powered by Binder, so you can run all notebooks in this repository without installing anything locally. Click the button below to launch the environment:
+
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/villalonreina/ENIGMA-DTI-Normative-Modeling/HEAD)
 
 If you decide to install all dependencies locally, these are the options:
