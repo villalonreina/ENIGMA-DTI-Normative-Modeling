@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
-pip cache purge || true
+set -euxo pipefail
+
+# Use a headless Matplotlib backend (prevents Qt pulling and runtime GUI tries)
+echo "MPLBACKEND=Agg" >> /etc/environment
+echo "MPLBACKEND=Agg" >> /home/jovyan/.bashrc
+
+# Clean caches to reduce final layer size
 conda clean --all -y || true
+pip cache purge || true
 rm -rf /srv/conda/pkgs/* || true
-``
+rm -rf ~/.cache/pip ~/.cache/matplotlib || true

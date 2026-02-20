@@ -3,17 +3,28 @@ channels:
   - conda-forge
 dependencies:
   - python=3.10
+
+  # Core scientific stack (OpenBLAS only; no MKL)
   - numpy
   - scipy
   - pandas
   - scikit-learn
-  - matplotlib
-  - nibabel
-  - pip
-  - pymc>=4          # REQUIRED
-  # If your notebooks actually use PyTorch, uncomment the next line.
-  # If not used, LEAVE TORCH OUT because it adds 1–1.5 GB.
-  # - pytorch::pytorch-cpu
+  - libblas=*=*openblas
 
+  # Headless plotting (no Qt/GTK)
+  - matplotlib-base
+
+  # Neuroimaging
+  - nibabel
+
+  # Jupyter
+  - jupyterlab
+  - ipykernel
+
+  # PyMC runtime (pulls pytensor, arviz, xarray)
+  - pymc>=5
+
+  # Pip-only light dep
+  - pip
   - pip:
       - bspline
