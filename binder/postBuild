@@ -1,12 +1,27 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-# Use a headless Matplotlib backend (prevents Qt pulling and runtime GUI tries)
-echo "MPLBACKEND=Agg" >> /etc/environment
-echo "MPLBACKEND=Agg" >> /home/jovyan/.bashrc
+# Set headless Matplotlib backend (safe for Binder)
+echo 'export MPLBACKEND=Agg' >> /home/jovyan/.bashrc
+echo 'MPLBACKEND=Agg'       >> /home/jovyan/.profile
+
+# Also create a matplotlibrc to enforce it globally (most reliable)
+mkdir -p /home/jovyan/.config/matplotlib
+printf "backend: Agg\n" > /home/jovyan/.config/matplotlib/matplotlibrc
+
+# (Optional) Pre-create cache & verify backend to avoid first-run cost
+python - <<'PY'
+import os, matplotlib
+print("Matplotlib backend:", matplotlib.get_backend())
+# Ensure cache dir exists (prevents first-use writes during session)
+os.makedirs(os.path.expanduser("~/.cache/matplotlib"), exist_ok=True)
+PY
 
 # Clean caches to reduce final layer size
 conda clean --all -y || true
 pip cache purge || true
 rm -rf /srv/conda/pkgs/* || true
-rm -rf ~/.cache/pip ~/.cache/matplotlib || true
+rm -rf /home/jovyan/.cache/pip /home/jovyan/.cache/matplotlib || true
+
+# Make sure ownership stays with jovyan
+chown -R jovyan:jovyan /home/jovyan
