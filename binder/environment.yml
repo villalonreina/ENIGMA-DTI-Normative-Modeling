@@ -1,0 +1,19 @@
+name: nm-binder
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn
+  - matplotlib
+  - nibabel
+  - pip
+  - pymc>=4          # REQUIRED
+  # If your notebooks actually use PyTorch, uncomment the next line.
+  # If not used, LEAVE TORCH OUT because it adds 1–1.5 GB.
+  # - pytorch::pytorch-cpu
+
+  - pip:
+      - bspline

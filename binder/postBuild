@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+pip cache purge || true
+conda clean --all -y || true
+rm -rf /srv/conda/pkgs/* || true
+``
