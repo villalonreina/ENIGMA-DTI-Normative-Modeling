@@ -11,7 +11,10 @@ We provide an interactive cloud environment powered by Binder, so you can run al
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/villalonreina/ENIGMA-DTI-Normative-Modeling/HEAD)
 
-If you decide to install all dependencies locally, these are the options:
+Because if memory issues in Binder, we did not ass PCNtoolkit directly, only its dependencies. Please me sure to install it once Binder has launched its Jupyter Notebook environment. Just type `%pip install -q pcntoolkit==0.35`.
+
+
+If you decide to install PCNtoolkit with all dependencies locally, these are the options:
 
 ## System Requirements for PCNtoolkit v0.29
 The code in this repo requires the following:
