@@ -88,7 +88,7 @@ meta_data.md  NM_0_0_estimate.pkl
 ## Demo of model adaptation
 We adpated the trained normative models to other datasets via *model transfer*, which is a function available in PCNtoolkit. In order to run this step you must have run the model training first and the trained normative model should be saved in the output directory specified above with the `-dirO` flag). The model adaptation script calls the estimated normative model (`meta_data.md  NM_0_0_estimate.pkl`) and saves the transfer model in another folder (also specified with a `dirO` flag). Note: we have also made the trained models from the paper available and can be found in the `models` folder of this repository. Please email Julio Villalon at julio.villalon@ini.usc.edu if you have any questions.
 
-You can run the model transfer function in Ipython via this command:
+You can run the model transfer function in Ipython with these commands:
 
 ```
 cd code
