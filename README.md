@@ -95,13 +95,13 @@ cd code
 mkdir /path/to/output_dir/test_transfer
 out_dir_transfer='/path/to/output_dir/test_transfer'
 
-run nm_hbr_NIMHANS_spline_age_sexbatch_transfer.py
-    -controls '../data/FA_NIMHANS_ROItable_denoised_controls_final.csv'
-    -dirM '/path/to/output_dir/norm_model'
-    -dirO out_dir_transfer
-    -age_column age
-    -site_column Protocol
-    -sex_column sex
+%run nm_hbr_NIMHANS_spline_age_sexbatch_transfer.py \
+    -controls '../data/FA_NIMHANS_ROItable_denoised_controls_final.csv' \
+    -dirM '/path/to/output_dir/norm_model' \
+    -dirO out_dir_transfer \
+    -age_column age \
+    -site_column Protocol \
+    -sex_column sex \
     -random_state 413624  
 ```
 One can pick any `random_state` in order to run it 10 different times, each time for a different trained model.
